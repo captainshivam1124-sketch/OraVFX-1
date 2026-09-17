@@ -1,0 +1,52 @@
+OraVFX code + SEO + production-readiness audit — September 2026
+
+Checked:
+- HTML structure and heading hierarchy
+- Local asset references
+- JavaScript syntax (server.js, admin/admin.js, ora/script.js)
+- SEO metadata, robots directives, canonical, Open Graph/Twitter metadata
+- JSON-LD Organization + WebSite structured data
+- Image alt attributes and async decoding
+- Server static path protection and security headers
+- robots.txt and sitemap.xml server endpoints
+- Admin authentication/session handling
+- Request-size limits and login rate limiting
+- Data-file write safety and configurable persistent storage
+- Razorpay server-side signature/webhook verification
+
+Fixed / hardened:
+- Improved title and meta descriptions for VFX / CGI / motion / creative technology intent.
+- Added canonical /ora/ URL, Open Graph URL/site name, author/googlebot metadata and favicon.
+- Added Organization + WebSite JSON-LD.
+- Added image CDN preconnect.
+- Added alt text to meaningful service/project images and async decoding to images.
+- Corrected the services count to 08 and the core-disciplines counter to 8.
+- Restored missing team-card numbering (01–08).
+- Removed a duplicate process icon.
+- Added robots.txt and dynamic sitemap.xml routes to the Node server.
+- Added security headers, protected server/config/data paths, and disabled admin indexing.
+- Production admin authentication requires ADMIN_PASSWORD; production sessions use Secure + HttpOnly + SameSite=Strict cookies.
+- Added per-IP login rate limiting.
+- Added a 5 MB default request limit to reduce oversized-request abuse.
+- Added atomic JSON writes to reduce data corruption during interrupted writes.
+- Added DATA_DIR and UPLOADS_DIR environment variables so production data can live on persistent storage.
+- Added /health endpoint for hosting health checks.
+- Removed the unnecessary admin/server.js file so server source is not exposed under /admin/.
+- Added .env.example, .gitignore and DEPLOYMENT.md with production setup instructions.
+
+Important deployment note:
+The app keeps the existing JSON data model so the current admin panel and frontend continue to work without a database migration. DATA_DIR MUST point to persistent writable storage on the production host. Do not use an ephemeral/serverless filesystem if inquiries, orders, package edits or uploaded client files must survive restarts/redeploys.
+
+The public site is served at /ora/. The current canonical and structured-data URLs use /ora/. If the final production domain/path differs, update the SEO URLs to the final public URL before Google Search Console submission.
+
+Razorpay credentials are intentionally not included in the ZIP. Set them as hosting environment variables. Never put live secrets in frontend code or commit them to Git.
+
+Validation:
+- server.js syntax check: PASS
+- admin/admin.js syntax check: PASS
+- ora/script.js syntax check: PASS
+- /health endpoint: PASS
+- /ora/ static page: PASS
+- /admin/ static page: PASS
+- /server.js and /.env blocked from public static access: PASS
+- production admin login returned Secure/HttpOnly/SameSite=Strict cookie: PASS
