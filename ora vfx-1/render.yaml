@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: ora-vfx
+    runtime: node
+    plan: free
+    buildCommand: ""
+    startCommand: node server.js
+    healthCheckPath: /api/health
+    autoDeploy: true
