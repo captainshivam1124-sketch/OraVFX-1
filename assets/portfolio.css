@@ -1,0 +1,184 @@
+/* ORA VFX — portfolio lightbox + dedicated portfolio page */
+body.ora-lightbox-open {
+  overflow: hidden;
+}
+.work {
+  cursor: pointer;
+}
+.ora-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1001;
+  display: grid;
+  place-items: center;
+  padding: 36px 90px;
+  background: rgba(0, 0, 0, 0.86);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition:
+    opacity 0.22s ease,
+    visibility 0.22s ease;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.ora-lightbox.is-open {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+.ora-lightbox[hidden] {
+  display: none;
+}
+.ora-lightbox-panel {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: min(58vw, 820px);
+  max-height: 88vh;
+}
+.ora-lightbox-media-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  max-width: 100%;
+  max-height: 80vh;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  background: #02080e;
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.55);
+}
+.ora-lightbox-media {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: min(52vw, 760px);
+  max-height: 78vh;
+  object-fit: contain;
+}
+.ora-lightbox-caption {
+  width: 100%;
+  padding: 14px 2px 0;
+  text-align: left;
+}
+.ora-lightbox-caption > span {
+  display: block;
+  color: var(--accent);
+  font-size: 10px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+.ora-lightbox-caption > strong {
+  display: block;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.25;
+}
+.ora-lightbox-close,
+.ora-lightbox-nav {
+  position: fixed;
+  z-index: 4;
+  appearance: none;
+  border: 1px solid rgba(0, 224, 248, 0.55);
+  background: rgba(2, 8, 14, 0.8);
+  color: #fff;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    opacity 0.2s ease;
+}
+.ora-lightbox-close:hover,
+.ora-lightbox-nav:hover:not(:disabled) {
+  background: var(--accent);
+  color: #02080e;
+  border-color: var(--accent);
+}
+.ora-lightbox-close {
+  top: 24px;
+  right: 26px;
+  width: 44px;
+  height: 44px;
+  font-size: 30px;
+  line-height: 1;
+}
+.ora-lightbox-nav {
+  top: 50%;
+  width: 46px;
+  height: 68px;
+  transform: translateY(-50%);
+  font-size: 42px;
+  font-weight: 200;
+  line-height: 1;
+}
+.ora-lightbox-prev {
+  left: 22px;
+}
+.ora-lightbox-next {
+  right: 22px;
+}
+.ora-lightbox-nav:disabled {
+  opacity: 0.25;
+  cursor: default;
+  border-color: rgba(255, 255, 255, 0.18);
+}
+.full-portfolio-intro {
+  padding-top: 145px;
+  padding-bottom: 45px;
+}
+.full-portfolio-intro .section-head {
+  margin-bottom: 0;
+}
+.full-portfolio-intro .section-head > p {
+  max-width: 560px;
+}
+.full-portfolio-grid {
+  margin-bottom: 20px;
+}
+@media (max-width: 760px) {
+  .ora-lightbox {
+    padding: 72px 54px 28px;
+  }
+  .ora-lightbox-panel {
+    max-width: 100%;
+    max-height: 86vh;
+  }
+  .ora-lightbox-media-wrap {
+    max-height: 72vh;
+  }
+  .ora-lightbox-media {
+    max-width: calc(100vw - 108px);
+    max-height: 68vh;
+  }
+  .ora-lightbox-close {
+    top: 14px;
+    right: 14px;
+    width: 42px;
+    height: 42px;
+  }
+  .ora-lightbox-nav {
+    width: 40px;
+    height: 56px;
+    font-size: 34px;
+  }
+  .ora-lightbox-prev {
+    left: 7px;
+  }
+  .ora-lightbox-next {
+    right: 7px;
+  }
+  .ora-lightbox-caption > strong {
+    font-size: 15px;
+  }
+  .full-portfolio-intro {
+    padding-top: 112px;
+    padding-bottom: 25px;
+  }
+}
