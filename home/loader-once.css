@@ -1,0 +1,8 @@
+/* Suppress the intro immediately on repeat visits, without layout flashes. */
+html.ora-loader-skip #oraLoader,
+html.ora-loader-skip .ora-loader {
+  display: none !important;
+  visibility: hidden !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+}

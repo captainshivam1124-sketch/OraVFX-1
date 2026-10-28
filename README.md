@@ -47,3 +47,13 @@ The homepage hero copy follows the live ORA VFX website's positioning: “Creati
 - Background glow, floating particles, streaks and signature shimmer have been restrained so the orb and headline carry the composition. The electric-thunder CTA remains the intentional high-energy interaction.
 - Added a very subtle, static tileable film-grain texture for a less sterile, more cinematic finish.
 - Service-word rotation has been slowed slightly for a calmer, more deliberate rhythm; the logo, orb loop, colors, routes, and one-screen layout remain unchanged.
+
+
+Favicon cache fix (2026-10-28)
+- The supplied square ORA mark is available as root `favicon.png`, root `favicon.ico`, and `assets/favicon.png`.
+- `index.html` points to the root icons with a new cache-busting query version.
+- When deploying, upload/commit `index.html`, `favicon.ico`, and `favicon.png` to the same public root; keep `assets/favicon.png` too. Overwrite existing files.
+- After deployment, hard refresh or open a private window if the old tab icon remains cached.
+
+
+Navigation note: the “View Our Work” CTA in the root landing page points to `/home/index.html`. Add your separate `home/index.html` page to the deployed project for this destination to resolve.

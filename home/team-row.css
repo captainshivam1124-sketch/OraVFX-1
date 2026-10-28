@@ -1,0 +1,70 @@
+/* ORA VFX team cards — compact three-card row on desktop.
+   Loaded only on the homepage; keeps existing card colors and effects. */
+body .section.team .container.team-grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  align-items: stretch;
+}
+
+body .section.team .container.team-grid > article {
+  min-width: 0 !important;
+  width: auto !important;
+  max-width: none !important;
+  box-sizing: border-box;
+  padding: 20px 16px 18px !important;
+}
+
+body .section.team .container.team-grid > article > b {
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  margin-bottom: 13px !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body .section.team .container.team-grid > article > h3 {
+  font-size: clamp(15px, 1.15vw, 18px) !important;
+  line-height: 1.25;
+  margin-bottom: 6px !important;
+  overflow-wrap: anywhere;
+}
+
+body .section.team .container.team-grid > article > span {
+  font-size: 11px !important;
+  line-height: 1.4;
+  margin-bottom: 5px !important;
+}
+
+body .section.team .container.team-grid > article > p {
+  font-size: 12px !important;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  margin-bottom: 0;
+}
+
+@media (min-width: 1200px) {
+  body .section.team .container.team-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+    gap: 14px !important;
+  }
+
+  body .section.team .container.team-grid > article {
+    padding: 18px 14px 16px !important;
+  }
+}
+
+@media (max-width: 760px) {
+  body .section.team .container.team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 12px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  body .section.team .container.team-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+}

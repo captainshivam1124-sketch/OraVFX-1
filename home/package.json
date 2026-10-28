@@ -1,0 +1,14 @@
+{
+  "name": "ora-vfx-site",
+  "version": "1.0.0",
+  "private": true,
+  "description": "ORA VFX static pages with direct email and WhatsApp contact options",
+  "scripts": {
+    "build": "node --check server.js && node --check theme-init.js && node --check theme.js && node --check loader-once.js && node --check meta-pixel-consent.js && node --check electric-button.js",
+    "start": "node server.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "main": "server.js"
+}

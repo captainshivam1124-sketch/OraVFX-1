@@ -1,0 +1,57 @@
+/* Direct contact actions replace the unavailable enquiry API form. */
+.contact-direct-actions {
+  display: grid;
+  align-content: center;
+  justify-items: start;
+  gap: 1rem;
+  min-width: 0;
+  padding: clamp(1.25rem, 3vw, 2rem);
+  border: 1px solid var(--ora-border);
+  border-radius: 18px;
+  background: var(--ora-surface-soft);
+  color: var(--ora-text);
+  box-shadow: var(--ora-shadow);
+}
+
+.contact-direct-actions__note {
+  margin: 0;
+  max-width: 42ch;
+  color: var(--ora-muted);
+  font-size: 0.95rem;
+  line-height: 1.65;
+}
+
+.contact-direct-actions .btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  max-width: 100%;
+  min-height: 44px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.contact-direct-actions__email {
+  border: 1px solid var(--ora-border);
+  background: transparent;
+  color: var(--ora-text) !important;
+  transition: border-color 180ms ease, color 180ms ease, background-color 180ms ease;
+}
+
+.contact-direct-actions__email:hover,
+.contact-direct-actions__email:focus-visible {
+  border-color: var(--ora-accent);
+  color: var(--ora-accent) !important;
+}
+
+.contact-direct-actions .btn:focus-visible {
+  outline: 2px solid var(--ora-accent);
+  outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+  .contact-direct-actions .btn {
+    width: 100%;
+  }
+}
